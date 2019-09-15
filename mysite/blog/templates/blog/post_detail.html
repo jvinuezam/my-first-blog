@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    {% if post.title  %}
+        <div class="col-sm-3 col-sm-6 col-sm-9 col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">{{post.title}}</h5>
+                </div>
+                <div class="card-body">
+                    <h6 class="card-title">publicado: {{post.published_date}}</h4>
+                    <p class="card-text">{{post.text|linebreaksbr}}</p>
+                    <a href="{% url 'post_list' %}" class="btn btn-primary">Volver</a>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

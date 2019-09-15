@@ -1,26 +1,17 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title>Blog</title>
-    </head>
-    <body>
 
+{% extends 'blog/base.html' %}
 
-        <div class="">
-            <h1> <a href="/">Blog UNEMI</a> </h1>
-        </div>
+{% block content %}
     {% for post in posts %}
-        <div class="">
-                <p>publicado: {{post.published_date}}</p>
-                <h2> <a href="">{{post.title}}</a> </h2>
-                <p>{{post.text|linebreaksbr}}</p>
+        <div class="col-sm-3">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h3 class="card-title">{{post.title}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">publicado: {{post.published_date}}</h4>
+                    <p class="card-text">{{post.text|linebreaksbr}}</p>
+                    <a href="{% url 'post_detail' pk=post.pk %}" class="btn btn-primary">Ver artículo...</a>
+                </div>
+            </div>
         </div>
     {% endfor %}
-
-
-
-
-        <a href="HTTP://www.unemi.edu.ec">UNEMI</a>
-    </body>
-</html>
+{% endblock %}
