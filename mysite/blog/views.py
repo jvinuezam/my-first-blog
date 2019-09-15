@@ -34,7 +34,7 @@ def post_edit(request, pk):
     post = get_object_or_404(Post, pk=pk)
     # Si la petición es por post (envío de datos por formulario)
     if request.method == 'POST':
-        # Reemplaza los valores del formuario por la instancia consultada (registros de la base)
+        # Reemplaza los valores del formuario por la instancia consultada
         form = PostForm(request.POST, instance=post)
         # Verifica si los datos son correctos y completos
         if form.is_valid():
@@ -51,5 +51,6 @@ def post_edit(request, pk):
     else:
         # asigna a una variable objeto el QuerySet
         form = PostForm(instance=post)
+
         # Pasa el RecordSet a la plantilla, con los datos cargados
     return render(request, 'blog/post_edit.html', {'form': form})
