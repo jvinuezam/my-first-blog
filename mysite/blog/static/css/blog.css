@@ -1,9 +1,9 @@
 
 header, footer {
     background:#0C60BF;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
 }
-
-
 
 footer h5 {
     color:#FFFFFF;
@@ -13,14 +13,8 @@ footer h5 {
 
 }
 
-.page-header {
-    background-color:#1C60AC;
-    margin-top: 0;
-    padding: 20px 20px 20px 40px;
-}
-
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
-    color:#F4F5F6;
+    color:#F4F6F5;
     font-size: 36pt;
     text-decoration: none;
 }
