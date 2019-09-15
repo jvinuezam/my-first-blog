@@ -8,30 +8,35 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="{% static '/css/blog.css' %}">
-
+        <link rel="stylesheet" href="{% static '/fontawesome/css/all.css' %}">
     </head>
     <body>
         <p></p>
-
         <header>
             <div class="container-fluid">
-                <div class="row">
+                <div class="row page-header">
                     <h1>Blog</h1>
                 </div>
             </div>
         </header>
         <br><br> <!---Espacio en blanco-->
 
-        <div class="row container-fluid">
-
-                <!-- Incluir cuerpo de pagina-->
-                {% block content %}
-                {% endblock %}
-
-
-        </div>
-
+        <body>
+            <div>
+                <div class="row content">
+                    <!----Muestra el boton "Nuevo" solo usuario autentificado-->
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'post_new' %}" class="btn btn-outline-success" ><i class="fas fa-plus-circle" ></i> Nuevo</a>
+                    {% endif %}
+                </div> <br>
+                <div class="row content">
+                    <!-- Incluir cuerpo de pagina-->
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
         <br><br><!---Espacio en blanco-->
+        </body>
 
         <footer>
             <br>
@@ -44,6 +49,6 @@
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
+        <script src="{% static '/fontawesome/js/all.js' %}" charset="utf-8"></script>
     </body>
 </html>
